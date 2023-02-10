@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+    <br>
+    <div class="mb-3 center border">
+        <form action="{% url 'download-confirmed' %}" method='post'>
+            <h3 class="h3">Files for downloading: </h3>
+            <h4 class="h4">Folder name - {{folder.folder_name}}</h4>
+            {% for file in files %}
+            <h5 class="h5">{{file}}</h5>
+            {% endfor %}
+            <button type="submit">Download</button>
+        </form>
+    </div>
+
+</body>
+</html>
